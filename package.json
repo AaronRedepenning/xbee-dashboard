@@ -1,0 +1,19 @@
+{
+  "name": "xbee-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard for Team 6 Senior Design Project",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 3000 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aaron Redepenning",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.6.5",
+    "flot": "^0.8.0-alpha",
+    "http-server": "^0.8.5"
+  }
+}

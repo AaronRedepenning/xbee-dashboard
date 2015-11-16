@@ -1,0 +1,12 @@
+body {
+  background: #eeeeee;
+  min-height: 100%;
+  font-family: 'Open Sans','Segoe UI';
+}
+
+/********************* Start: Main Content Styles ***************************/
+.main-content {
+  position: relative;
+  margin: 70px 0 0 0;
+}
+/********************* End: Main Content Styles ***************************/

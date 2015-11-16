@@ -1,0 +1,14 @@
+/*********************** Start: Sidebar Styles *****************************/
+
+.sidebar-container {
+  z-index: 100;
+  margin: 50px 0 0 0;
+  position: absolute;
+  min-height: 100%;
+  width: 250px;
+  background: #ffffff;
+  border-left: 2px solid lightgray;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+}
+
+/*********************** Start: Sidebar Styles *****************************/

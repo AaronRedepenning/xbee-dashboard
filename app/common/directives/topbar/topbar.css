@@ -1,0 +1,67 @@
+/*********************** Start: Topbar Styles *****************************/
+.navbar {
+  padding: 0;
+  margin: 0;
+  border: none;
+  z-index: 200;
+}
+
+.navbar .navbar-top {
+    border: 0;
+    min-height: 55px;
+    background-color: #4285F4;
+}
+
+.navbar .navbar-brand {
+  padding: 2px 0;
+  height: 55px;
+}
+
+.navbar .navbar-brand small img {
+  height: 50px;
+  width: 180px;
+}
+
+.navbar .sidebar-collapse {
+  text-align: center;
+  padding: 0;
+  position: absolute;
+  left: 210px;
+  top: 0;
+  width: 40px;
+  height: 55px;
+}
+
+.navbar .sidebar-collapse .collapse-icon {
+  display: inline-block;
+  cursor: pointer;
+  margin: 3px 0;
+  font-size: 20px;
+  color: #fff;
+  padding: 13px 5px;
+  position: relative;
+}
+
+.navbar .sidebar-collapse:hover {
+  box-shadow: 0 0 20px rgba(0,0,0,.2);
+}
+
+.navbar .navbar-top .navbar-container .navbar-right {
+  margin-right: 2px;
+}
+
+.navbar-top .navbar-right a {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 54px;
+  padding: 0;
+  min-width: 50px;
+  height: 55px;
+  text-align: center;
+}
+
+.navbar-top .navbar-right a .fa-cog {
+  font-size: 22px;
+  line-height: 50px;
+}
+/*********************** End: Topbar Styles *****************************/
