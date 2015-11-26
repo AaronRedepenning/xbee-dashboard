@@ -1,7 +1,7 @@
 # xbee-dasboard — A Dashboard for the Team 6 Senior Design Project
 
 This project is an application for a senior design project at the University of St. Thomas, for
-the company Design Ready Controls. The application is for a Project Downselect demo that displays
+the company Design Ready Controls. The application is for a Project Down-select demo that displays
 information gathered from a Xbee wireless sensor network.
 
 This project uses [AngularJS](http://angularjs.org/) as it web framework. Other web technologies used
@@ -22,6 +22,17 @@ npm (the node.js package manager). More information about Bower can be found at:
 [http://bower.io/](http://bower.io/).
 
 ## Getting Started
+
+You have two options for getting started with xbee-dasboard:
+1. Download .zip file from github - Quicker and Easier option.
+2. Clone on computer using git. - Better option, allows you to easily update the project to newer versions, contribute to the code, see version control history, and everything else that git allows you to do.
+
+### Download zip
+
+Press Download ZIP button on github. The button is located on the right of the page above
+the listing of project files.
+
+### Clone Using git
 
 To get stated simply clone this repository onto your local computer. To do this run the following
 command from a terminal:
@@ -141,7 +152,7 @@ configure your server to serve the files under the `app/` directory.
 
 For more information on AngularJS check out http://angularjs.org/
 
-Other resources: 
+Other resources:
 * Git - http://git-scm.com/
 * Bower - http://bower.io
 * NPM - https://www.npmjs.org/
