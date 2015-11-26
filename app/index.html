@@ -1,58 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js" ng-app="dashboard">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Team 6 Dashboard</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="dashboard" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Include bootstrap and html5-boilerplate CSS -->
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- html5-boilerplate best practices - see: https://html5boilerplate.com/ -->
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
 
-    <!-- Font Styles -->
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Using Twitter Bootstrap's CSS styles - docs at: http://getbootstrap.com/ -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="common/directives/topbar/topbar.css">
-    <link rel="stylesheet" href="common/directives/sidebar/sidebar.css">
-    <link rel="stylesheet" href="main/main.css">
+  <!-- Font awesome used for icons - docs at: https://fortawesome.github.io/Font-Awesome/ -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
-    <!-- modernizr-2 from html5-boilerplate best practices -->
-    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  </head>
+  <!-- App specific custom styles -->
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="common/directives/topbar/topbar.css">
+  <link rel="stylesheet" href="main/main.css">
 
-  <body>
-    <!-- Header, See: navbar-header.html -->
-    <dashboard-topbar></dashboard-topbar>
+  <!-- modernizr-2 script (feature detection and browser support) - docs at: https://modernizr.com/ -->
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
 
-    <!-- Sidebar, See: sidebar-aside.html -->
-    <!-- <div ng-include="'common/directives/sidebar/sidebar.html'"></div> -->
+  <!--Top Navigation Bar - See Template: /app/common/directives/topbar/topbar.html-->
+  <dashboard-topbar></dashboard-topbar>
+  <!--//Top Navigation Bar-->
 
-    <!-- *** Main Content *** -->
-    <div class="container-fluid">
-        <div class="main-content" ng-view></div>
-    </div>
+  <!-- Main Dashboard Content -->
+  <div class="container-fluid">
+    <div class="main-content" ng-view></div>
+  </div>
+  <!--//Main Dashboard Content-->
 
-    <!-- Include angular.js scripts -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <!-- In production use:
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-    -->
 
-    <!-- jQuery scripts needed for Flot Charting tool -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Angular.js v.1 scripts - See docs: https://angularjs.org/ -->
+  <script src="bower_components/angular/angular.js"></script>
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular-route/angular-route.js"></script>
 
-    <!-- Charting Scripts (flot is an npm package)-->
-    <script src="../node_modules/flot/jquery.flot.js"></script>
+  <!-- Flot Charting - Docs at: http://www.flotcharts.org/ -->
+  <script src="../node_modules/flot/jquery.flot.js"></script>
 
-    <!-- Custom Scripts -->
-    <script src="app.js"></script>
-    <script src="main/controllers/main.js"></script>
-    <script src="common/directives/topbar/topbar.js"></script>
-  </body>
+  <!-- jquery required for flot charting and DOM manipulation - docs at: https://jquery.com/ -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+  <!-- App specific custom scripts -->
+  <script src="app.js"></script>
+  <script src="main/main.js"></script>
+  <script src="common/directives/topbar/topbar.js"></script>
+  <script src="main/directives/realtime-chart/realtime-chart.js"></script>
+</body>
 </html>
