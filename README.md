@@ -24,8 +24,11 @@ npm (the node.js package manager). More information about Bower can be found at:
 ## Getting Started
 
 You have two options for getting started with xbee-dasboard:
+
 1. Download .zip file from github - Quicker and Easier option.
-2. Clone on computer using git. - Better option, allows you to easily update the project to newer versions, contribute to the code, see version control history, and everything else that git allows you to do.
+
+2. Clone on computer using git. - Better option, allows you to easily update the project to newer versions,
+contribute to the code, see version control history, and everything else that git allows you to do.
 
 ### Download zip
 
