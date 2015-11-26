@@ -141,14 +141,15 @@ configure your server to serve the files under the `app/` directory.
 
 For more information on AngularJS check out http://angularjs.org/
 
-Git - http://git-scm.com/
-Bower - http://bower.io
-NPM - https://www.npmjs.org/
-Node - http://nodejs.org
-Flot Charts - http://www.flotcharts.org/
-Font-Awesome https://fortawesome.github.io/Font-Awesome/
-Bootstrap - http://getbootstrap.com/
-Http-server - https://github.com/nodeapps/http-server
+Other resources: 
+* Git - http://git-scm.com/
+* Bower - http://bower.io
+* NPM - https://www.npmjs.org/
+* Node - http://nodejs.org
+* Flot Charts - http://www.flotcharts.org/
+* Font-Awesome https://fortawesome.github.io/Font-Awesome/
+* Bootstrap - http://getbootstrap.com/
+* Http-server - https://github.com/nodeapps/http-server
 
 [git]: http://git-scm.com/
 [bower]: http://bower.io
