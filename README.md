@@ -8,11 +8,6 @@ This project uses [AngularJS](http://angularjs.org/) as it web framework. Other 
 by this project are listed, with links to documentation, in the very last section of this README (see
 useful resources section).
 
-## Getting Started
-
-To get stated simply copy this directory (xbee-dasboard) from the OneDrive onto your local computer.
-Then continue with the next steps outlined below.
-
 ### Prerequisites
 
 Git is used for version control, it is not needed to set up this project but it may be helpful.
@@ -25,6 +20,18 @@ You must have node.js and its package manager (npm) installed.  You can get them
 This project also uses bower as its front end package manager. It is automatically installed by
 npm (the node.js package manager). More information about Bower can be found at:
 [http://bower.io/](http://bower.io/).
+
+## Getting Started
+
+To get stated simply clone this repository onto your local computer. To do this run the following
+command from a terminal:
+
+```
+git clone https://github.com/angular/angular-seed.git
+```
+
+*Note: You may need to enter your github credentials.*
+
 
 ### Install Dependencies
 
@@ -133,6 +140,15 @@ configure your server to serve the files under the `app/` directory.
 ## Useful Resources
 
 For more information on AngularJS check out http://angularjs.org/
+
+Git - http://git-scm.com/
+Bower - http://bower.io
+NPM - https://www.npmjs.org/
+Node - http://nodejs.org
+Flot Charts - http://www.flotcharts.org/
+Font-Awesome https://fortawesome.github.io/Font-Awesome/
+Bootstrap - http://getbootstrap.com/
+Http-server - https://github.com/nodeapps/http-server
 
 [git]: http://git-scm.com/
 [bower]: http://bower.io
