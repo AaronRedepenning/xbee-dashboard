@@ -41,7 +41,7 @@ To get stated simply clone this repository onto your local computer. To do this 
 command from a terminal:
 
 ```
-git clone https://github.com/angular/angular-seed.git
+git clone https://github.com/AaronRedepenning/xbee-dashboard.git
 ```
 
 *Note: You may need to enter your github credentials.*
