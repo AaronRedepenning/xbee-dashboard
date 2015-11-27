@@ -27,6 +27,14 @@
 
   <!-- modernizr-2 script (feature detection and browser support) - docs at: https://modernizr.com/ -->
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <!-- Temporary to try math.js -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+  </script>
+  <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
 </head>
 <body>
 
@@ -48,16 +56,17 @@
   -->
   <script src="bower_components/angular-route/angular-route.js"></script>
 
-  <!-- Flot Charting - Docs at: http://www.flotcharts.org/ -->
-  <script src="../node_modules/flot/jquery.flot.js"></script>
-
   <!-- jquery required for flot charting and DOM manipulation - docs at: https://jquery.com/ -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+  <!-- Flot Charting - Docs at: http://www.flotcharts.org/ -->
+  <script src="../node_modules/flot/jquery.flot.js"></script>
 
   <!-- App specific custom scripts -->
   <script src="app.js"></script>
   <script src="main/main.js"></script>
   <script src="common/directives/topbar/topbar.js"></script>
   <script src="main/directives/realtime-chart/realtime-chart.js"></script>
+  <script src="wsn-node/wsn-node.js"></script>
 </body>
 </html>

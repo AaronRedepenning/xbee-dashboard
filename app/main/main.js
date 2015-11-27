@@ -5,10 +5,10 @@ angular.module('dashboard.main', ['ngRoute', 'dashboard.chart'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/main', {
     templateUrl: 'main/main.html',
-    controller: 'View1Ctrl'
+    controller: 'MainCtrl'
   });
 }])
 
-.controller('View1Ctrl', [function() {
+.controller('MainCtrl', [function() {
 
 }]);

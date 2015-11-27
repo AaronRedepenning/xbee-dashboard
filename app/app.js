@@ -4,7 +4,8 @@
 angular.module('dashboard', [
   'ngRoute',         // Anguler Module used for view routing
   'dashboard.main',  // For module code see: .js files in /main
-  'dashboard.common' // For module code see: .js files in /common
+  'dashboard.common', // For module code see: .js files in /common
+  'dashboard.wsn-node'
 ])
 
 .config(['$routeProvider', function($routeProvider) {

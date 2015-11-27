@@ -5,6 +5,10 @@
   margin-bottom: 30px;
 }
 
+.widget-header {
+  text-align: center;
+}
+
 .flot-chart {
   height: 300px;
   width: 100%;
