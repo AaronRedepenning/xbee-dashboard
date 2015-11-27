@@ -2,7 +2,8 @@
   "name": "xbee-dashboard",
   "version": "1.0.0",
   "description": "Dashboard for Team 6 Senior Design Project",
-  "main": "index.js",
+  "repository": "https://github.com/AaronRedepenning/xbee-dashboard",
+  "main": "app.js",
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
