@@ -1,54 +1,95 @@
-<div class="row">
-  <!--Temperature Chart-->
-  <div class="col-md-6">
-    <div class="widget">
-      <div class="widget-header">
-        <h3>Temperature</h3>
+<div ng-controller="MainCtrl as mainCtrl">
+  <!--Sensor Guages-->
+  <div class="row">
+    <div class="col-md-3">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Average Temperature</h5>
+          <div class="tools">
+            <i class="wi wi-earthquake"></i>
+          </div>
+        </div>
+        <div class="widget-body">
+          {{mainCtrl.avgTemp}}
+        </div>
       </div>
-      <div class="widget-body text-center">
-        <div class="flot-chart" realtime-chart></div>
-        <span>Time</span>
+    </div>
+    <div class="col-md-3">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Relative Humidity</h5>
+          <div class="tools">
+            <i class="wi wi-earthquake"></i>
+          </div>
+        </div>
+        <div class="widget-body">
+          {{mainCtrl.avgHum}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Node #1 Light</h5>
+          <div class="tools">
+            <i class="wi wi-earthquake"></i>
+          </div>
+        </div>
+        <div class="widget-body">
+          {{mainCtrl.light1}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Node #2 Light</h5>
+          <div class="tools">
+            <i class="wi wi-earthquake"></i>
+          </div>
+        </div>
+        <div class="widget-body">
+          {{mainCtrl.light2}}
+        </div>
       </div>
     </div>
   </div>
-  <!--/Temperature Chart-->
+  <!--/Sensor Guages-->
 
-  <!--Humidity Chart-->
-  <div class="col-md-6">
-    <div class="widget">
-      <div class="widget-header">
-        <h3>Humidity</h3>
-      </div>
-      <div class="widget-body text-center">
-        <div class="flot-chart" realtime-chart></div>
-        <span>Time</span>
+  <div class="row">
+    <!--Temperature Chart-->
+    <div class="col-md-6">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Temperature</h5>
+          <div class="tools">
+            <i class="wi wi-thermometer"></i>
+          </div>
+        </div>
+        <div class="widget-body text-center">
+          <flot dataset="dataset" options="options" height="300px"></flot>
+          <span>Time</span>
+        </div>
       </div>
     </div>
+    <!--/Temperature Chart-->
+
+    <!--Humidity Chart-->
+    <div class="col-md-6">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Humidity</h5>
+          <div class="tools">
+            <i class="wi wi-humidity"></i>
+          </div>
+        </div>
+        <div class="widget-body text-center">
+          <flot dataset="dataset" options="options" height="300px"></flot>
+          <span>Time</span>
+        </div>
+      </div>
+    </div>
+    <!--/Humidity Chart-->
   </div>
-  <!--/Humidity Chart-->
+
 </div>
-
-<!--Sensor Guages-->
-<div class="row">
-  <div class="col-md-3">
-    <div class="widget">
-
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="widget">
-
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="widget">
-
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="widget">
-
-    </div>
-  </div>
-</div>
-<!--/Sensor Guages-->

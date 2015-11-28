@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dashboard.chart', [])
+angular.module('dashboard.charting', [])
 
 .controller('Ctrl', function($scope) {
     $scope.data = [[[0, 1], [1, 5], [2, 2]]];

@@ -23,6 +23,8 @@
     "bower": "*",
     "install": "~1.0.4",
     "bootstrap": "~3.3.5",
-    "font-awesome": "fontawesome#~4.4.0"
+    "font-awesome": "fontawesome#~4.4.0",
+    "weather-icons": "~2.0.10",
+    "angular-flot": "~0.0.15"
   }
 }

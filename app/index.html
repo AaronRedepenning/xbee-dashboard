@@ -20,6 +20,9 @@
   <!-- Font awesome used for icons - docs at: https://fortawesome.github.io/Font-Awesome/ -->
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
+  <!-- Weather-icons for weather themed icons: https://erikflowers.github.io/weather-icons/ -->
+  <link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.min.css">
+
   <!-- App specific custom styles -->
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="common/directives/topbar/topbar.css">
@@ -27,6 +30,7 @@
 
   <!-- modernizr-2 script (feature detection and browser support) - docs at: https://modernizr.com/ -->
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
   <!-- Temporary to try math.js -->
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -62,11 +66,15 @@
   <!-- Flot Charting - Docs at: http://www.flotcharts.org/ -->
   <script src="../node_modules/flot/jquery.flot.js"></script>
 
+  <!-- Angular Flot directive wrapper -->
+  <script src="bower_components/angular-flot/angular-flot.js"></script>
+
   <!-- App specific custom scripts -->
   <script src="app.js"></script>
   <script src="main/main.js"></script>
   <script src="common/directives/topbar/topbar.js"></script>
-  <script src="main/directives/realtime-chart/realtime-chart.js"></script>
+  <script src="common/directives/realtime-chart/realtime-chart.js"></script>
   <script src="node-detail/node-detail.js"></script>
+  <script src="node-detail/directives/sensor-detail/sensor-detail.js"></script>
 </body>
 </html>

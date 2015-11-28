@@ -1,97 +1,108 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="widget">
-      <div class="widget-header">
-        <h2>Hardware Block Diagram</h2>
-      </div>
-      <div class="widget-body">
-        {{nodeId}}
-      </div>
-    </div>
-  </div>
-  <div class="col-md-12">
-    <div class="widget">
-      <div class="widget-header">
-        <h2>Temperature Sensor - TMP36</h2>
-      </div>
-      <div class="widget-body">
-        <div class="row">
-          <div class="col-md-2">
-            <img src="https://cdn.sparkfun.com//assets/parts/4/1/8/8/10988-01.jpg" class="img-responsive">
+<div ng-controller="NodeDetailCtrl as NodeCtrl">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Harware Block Diagram</h5>
+          <div class="tools">
+            <i class="fa fa-television"></i>
           </div>
-          <div class="col-md-2">
-            <strong>Sensor Info:</strong><br/>
-            Voltage Input: 2.7-5.5 VDC<br/>
-            10 mV/°C scale factor<br/>
-            ±2°C accuracy over temperature<br/>
-            ±0.5°C linearity<br/>
-            Operating Range: −40°C to +125°C<br/>
-          </div>
-          <div class="col-md-3">
-            <div class="adc-reading">
-              <strong>ADC Reading:</strong>
-              <span> {{nodeId}}</span>
+        </div>
+        <div class="widget-body">
+          <div class="row">
+            <div class="col-md-8">
+              <img ng-src="{{NodeCtrl.hardwareImage}}" class="img-responsive">
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="equation">
-              $$T(°F) = (bits * 10) / 100$$
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="actual-temp">
-              73°F
+            <div class="col-md-4">
+              <h5>Info:</h5>
+              <table class="table table-striped">
+                <tr ng-repeat="info in NodeCtrl.hardwareInfo">
+                  <td>{{info[0]}}</td>
+                  <td>{{info[1]}}</td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
       </div>
+      <!--Hardware Block Diagram-->
     </div>
-  </div>
-  <div class="col-md-12">
-    <div class="widget">
-      <div class="widget-header">
-        <h2>Photocell</h2>
+
+    <div class="col-md-6">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Temperature Sensor - TMP36</h5>
+          <div class="tools">
+            <i class="wi wi-thermometer"></i>
+          </div>
+        </div>
+        <div class="widget-body">
+          <sensor-detail></sensor-detail>
+        </div>
       </div>
-      <div class="widget-body">
-        <div class="row">
-          <div class="col-md-3">
-            <img src="https://cdn.sparkfun.com//assets/parts/2/4/6/2/09088-02-L.jpg" class="img-responsive">
+    </div>
+
+    <div class="col-md-6">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Photocell Resistor</h5>
+          <div class="tools">
+            <i class="wi wi-horizon-alt"></i>
           </div>
-          <div class="col-md-9">
-            Light resistance : ~1k Ohm<br/>
-            Dark resistance : ~10k Ohm<br/>
-            Max voltage : 150V<br/>
-            Max power: 100mW<br/>
-          </div>
+        </div>
+        <div class="widget-body">
+          <sensor-detail></sensor-detail>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>XBee Transmitter Settings</h5>
+        </div>
+        <div class="widget-body">
+          <table class="table table-striped">
+            <tr>
+              <td>Hello World</td>
+              <td>Testing</td>
+              <td>Aaron Redepenning</td>
+            </tr>
+            <tr>
+              <td>Hello World</td>
+              <td>Testing</td>
+              <td>Aaron Redepenning</td>
+            </tr>
+            <tr>
+              <td>Hello World</td>
+              <td>Testing</td>
+              <td>Aaron Redepenning</td>
+            </tr>
+            <tr>
+              <td>Hello World</td>
+              <td>Testing</td>
+              <td>Aaron Redepenning</td>
+            </tr>
+            <tr>
+              <td>Hello World</td>
+              <td>Testing</td>
+              <td>Aaron Redepenning</td>
+            </tr>
+            <tr>
+              <td>Hello World</td>
+              <td>Testing</td>
+              <td>Aaron Redepenning</td>
+            </tr>
+            <tr>
+              <td>Hello World</td>
+              <td>Testing</td>
+              <td>Aaron Redepenning</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-12">
-    <div class="widget">
-      <div class="widget-header">
-        <h2>XBee Settings</h2>
-      </div>
-      <div class="widget-body">
-        <table class="table table-hover table table-bordered">
-          <tr>
-            <td><strong>Parameter</strong></td>
-            <td><strong>Value</strong></td>
-          </tr>
-          <tr>
-            <td>Param1</td>
-            <td>Value</td>
-          </tr>
-          <tr>
-            <td>Param2</td>
-            <td>Value</td>
-          </tr>
-          <tr>
-            <td>Param3</td>
-            <td>Value</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
+
 </div>

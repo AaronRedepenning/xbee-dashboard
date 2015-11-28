@@ -1,0 +1,50 @@
+<div ng-controller="SensorDetailCtrl as SensorCtrl" class="row">
+  <!--Sensor Info-->
+  <div class="col-md-3">
+    <div>
+      <img ng-src="{{SensorCtrl.sensorImage}}" alt="Sensor Image" class="img-responsive">
+    </div>
+    <div>
+      <p>
+        {{SensorCtrl.sensorDescription}}
+      </p>
+    </div>
+  </div>
+  <!--/Sensor Info-->
+
+  <div class="col-md-6">
+    <div class="row">
+      <p>
+        {{SensorCtrl.equation}}
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        {{nodeId}}
+      </div>
+      <div class="col-sm-6">
+        {{nodeId}}
+      </div>
+    </div>
+    <div class="row">
+      <p>
+        {{SensorCtrl.equation}}
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        {{nodeId}}
+      </div>
+      <div class="col-sm-6">
+        {{nodeId}}
+      </div>
+    </div>
+  </div>
+
+  <!--Current Value-->
+  <div class="col-md-3">
+    {{nodeId}}
+    <i class="wi wi-fahrenheit"></i>
+  </div>
+  <!--/Current Value-->
+</div>

@@ -1,7 +1,9 @@
 body {
   background: #eeeeee;
   min-height: 100%;
-  font-family: 'Open Sans','Segoe UI';
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #676a6c;
+  font-size: 13px;
 }
 
 .main-content {
@@ -12,14 +14,41 @@ body {
 .widget {
   background-color: #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-  padding: 5px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  clear: both;
 }
 
 .widget-header {
-  text-align: center;
+  border-color: #e7eaec;
+  border-style: solid solid none;
+  border-width: 3px 0 0;
+  color: inherit;
+  margin-bottom: 0;
+  padding: 14px 15px 7px;
+  min-height: 48px;
+}
+
+.widget-header h5 {
+  display: inline-block;
+  float: left;
+  font-size: 16px;
+  margin: 0 0 7px;
+  padding: 0;
+}
+
+.widget-header .tools {
+  display: block;
+  float: none;
+  position: relative;
+  text-align: right;
+  color: #4285F4;
+  font-size: 16px;
 }
 
 .widget-body {
-  
+  color: inherit;
+  padding: 15px 20px 20px 20px;
+  border-color: #e7eaec;
+  border-style: solid solid none;
+  border-width: 1px 0px;
 }
