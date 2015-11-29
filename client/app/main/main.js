@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dashboard.main', ['ngRoute', 'angular-flot'])
+angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/main', {
@@ -9,13 +9,13 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot'])
   });
 }])
 
-.controller('MainCtrl', ['$interval', '$scope', function($interval, $scope) {
+.controller('MainCtrl', ['$interval', '$scope', '$socket', function($interval, $scope, $socket) {
   var ctrl = this;
   this.avgTemp = 0;
   this.avgHum = 0;
   this.light1 = 0;
   this.light2 = 0;
-  
+
   var pos = 30;
   $scope.dataset = [{ data: [], yaxis: 1, label: 'sin' }];
   $scope.options = {
@@ -44,6 +44,10 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot'])
   for (var i = 0; i < pos; i += 0.25) {
     $scope.dataset[0].data.push([i, Math.sin(i)]);
   }
+  var socket = io();
+  // $socket.on('update', $scope, function(data){
+  //   console.log(data);
+  // });
 
   var intervalHandle = $interval(function() {
     $scope.dataset[0].data.shift();

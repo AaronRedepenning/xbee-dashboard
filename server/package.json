@@ -1,0 +1,24 @@
+{
+  "name": "xbee-server",
+  "version": "1.0.0",
+  "description": "Server to provide xbee info to xbee-dashboard",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronRedepenning/xbee-dashboard.git"
+  },
+  "author": "Aaron Redepenning",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AaronRedepenning/xbee-dashboard/issues"
+  },
+  "homepage": "https://github.com/AaronRedepenning/xbee-dashboard#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.7"
+  }
+}

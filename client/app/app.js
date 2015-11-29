@@ -5,8 +5,7 @@ angular.module('dashboard', [
   'ngRoute',         // Anguler Module used for view routing
   'dashboard.main',  // For module code see: .js files in /main
   'dashboard.common', // For module code see: .js files in /common
-  'dashboard.node-detail',
-  'dashboard.charting'
+  'dashboard.node-detail'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
