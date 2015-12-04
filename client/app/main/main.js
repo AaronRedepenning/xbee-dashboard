@@ -70,7 +70,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
 
     //Add new data point
     $scope.tempDataset[0].data.push([dataMax, $scope.averageTemp]);
-    $scope.humDataset[0].data.push([dataMax, $scope.averageTemp])
+    $scope.humDataset[0].data.push([dataMax, $scope.averageHum])
   }, 400);
 
   $scope.$on('destroy', function() {
