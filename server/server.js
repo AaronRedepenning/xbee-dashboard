@@ -34,15 +34,10 @@ app.get('/', function(req, res) {
 
 // Socket.io emmitters
 io.on('connection', function(socket){
-// Set up event handler for recieveing xbee frames
+	// Set up event handler for recieveing xbee frames
 	if (xbee_set === false) {
 			xbeeAPI.on("frame_object", function(frame) {
-				if(xbeeStations[frame.remote64] == 1) {
-					io.emit('update', { stationType: 1, tempF: frame.analogSamples.AD0 / 10, lightInt: frame.analogSamples.AD1 });
-				}
-				else if(xbeeStations[frame.remote64] == 2) {
-					io.emit('update', { stationType: 2, tempF: frame.data[0], lightInt: ((frame.data[2] * 256) + frame.data[3]), hum: frame.data[1] });
-				}
+				io.emit('update', frame);
 			});
 			xbee_set = true;
 		}
