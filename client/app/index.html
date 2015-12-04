@@ -40,7 +40,7 @@
   <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 </head>
-<body>
+<body ng-controller="GlobalCtrl">
 
   <!--Top Navigation Bar - See Template: /app/common/directives/topbar/topbar.html-->
   <dashboard-topbar></dashboard-topbar>
@@ -66,13 +66,13 @@
   <!-- Socket.io library - docs at: -->
   <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
 
-  <!-- ngSocket, an Angular wrapper for socket.io - docs at: -->
+  <!-- ngSocket, an Angular wrapper for socket.io - docs at: https://github.com/angular/ngSocket -->
   <script src="bower_components/ng-socket/ngSocket.js"></script>
 
   <!-- Flot Charting - Docs at: http://www.flotcharts.org/ -->
   <!-- Note: Path was changed to work correctly with express server and should
               have .. in front to work correcly with development server -->
-  <script src="../node_modules/flot/jquery.flot.js"></script>
+  <script src="node_modules/flot/jquery.flot.js"></script>
 
   <!-- Angular Flot directive wrapper -->
   <script src="bower_components/angular-flot/angular-flot.js"></script>

@@ -44,19 +44,12 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
   for (var i = 0; i < pos; i += 0.25) {
     $scope.dataset[0].data.push([i, Math.sin(i)]);
   }
-  var socket = io();
-  // $socket.on('update', $scope, function(data){
-  //   console.log(data);
-  // });
 
   var intervalHandle = $interval(function() {
     $scope.dataset[0].data.shift();
     pos += 0.25;
     $scope.dataset[0].data.push([pos, Math.sin(pos)]);
-    ctrl.avgTemp = Math.floor(Math.random() *100);
-    ctrl.avgHum = Math.floor(Math.random() *100);
-    ctrl.light1 = Math.floor(Math.random() *1024);
-    ctrl.light2 = Math.floor(Math.random() *1024);
+
   }, 400);
 
   $scope.$on('destroy', function() {

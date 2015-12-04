@@ -4,7 +4,8 @@ module.exports = {
   server: {
     listenPort: 8000
   },
-  nodes: {
-
+  xbee: {
+    baudrate: 9600,
+    serialPort: "/dev/ttyUSB0"
   }
 }
