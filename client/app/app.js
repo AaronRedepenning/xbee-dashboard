@@ -15,9 +15,22 @@ angular.module('dashboard', [
 }])
 
 .controller('GlobalCtrl', ['$scope', '$socket', function($scope, $socket) {
-  $scope.avg = 0;
+  $scope.averageTemp = 0;
+  $scope.averageHum = 0;
 
-  $socket.on('update', function(data) {
-    console.log(data);
+  $socket.on('update', function(message) {
+    console.log(message);
+    if(message.remote16 == 'fe78') {
+      $scope.averageTemp = message.data[0];
+      $scope.averageHum = message.data[1];
+    }
   });
 }]);
+
+/* XBee Station Type#2 Frame Example
+{ type: 144,
+  remote64: '0013a20040e5f261',
+  remote16: 'fe78',
+  receiveOptions: 1,
+  data: <Buffer 49 2d 03 30> }
+*/

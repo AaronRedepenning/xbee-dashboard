@@ -18,7 +18,7 @@ var C = xbee_api.constants,
 
 // New XBee Object with API (Escaping) Mode
 xbeeAPI = new xbee_api.XBeeAPI({
-        api_mode: 2
+	api_mode: 2
 });
 
 // Use serial port settings in config file and apply xbee parser
