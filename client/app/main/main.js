@@ -10,14 +10,11 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
 }])
 
 .controller('MainCtrl', ['$interval', '$scope', '$socket', function($interval, $scope, $socket) {
-  var ctrl = this;
-  this.avgTemp = 0;
-  this.avgHum = 0;
-  this.light1 = 0;
-  this.light2 = 0;
+  var ctrl = this,
+      dataMax = 30;
 
-  var pos = 30;
-  $scope.dataset = [{ data: [], yaxis: 1, label: 'sin' }];
+  $scope.tempDataset = [{ data: [], yaxis: 1, label: 'Temperature' }];
+  $scope.humDataset = [{ data: [], yaxis: 1, label: 'Humidity' }];
   $scope.options = {
     series: {
       lines: {
@@ -27,8 +24,8 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
       shadowSize: 0
     },
     yaxis: {
-      min: -1,
-      max: 1
+      min: 0,
+      max: 100
     },
     xaxis: {
       show: false
@@ -41,16 +38,32 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     colors: ["#5BA0D3"]
   };
 
-  for (var i = 0; i < pos; i += 0.25) {
-    $scope.dataset[0].data.push([i, Math.sin(i)]);
-  }
+  // Watch Temperature Value from Socket.io
+  $scope.$watch('averageTemp', function(newValue, oldValue) {
+    if($scope.tempDataset[0].data.length == dataMax) {
+      $scope.tempDataset[0].data.shift();
+    }
+    $scope.tempDataset[0].data.push(newValue);
+  });
 
-  var intervalHandle = $interval(function() {
-    $scope.dataset[0].data.shift();
-    pos += 0.25;
-    $scope.dataset[0].data.push([pos, Math.sin(pos)]);
+  // Watch Humidity Value from Socket.io
+  $scope.$watch('averageHum', function(newValue, oldValue) {
+    if($scope.humDataset[0].data.length == dataMax) {
+      $scope.humDataset[0].data.shift();
+    }
+    $scope.humDataset[0].data.push(newValue);
+  });
 
-  }, 400);
+  // for (var i = 0; i < pos; i += 0.25) {
+  //   $scope.dataset[0].data.push([i, Math.sin(i)]);
+  // }
+  //
+  // var intervalHandle = $interval(function() {
+  //   $scope.dataset[0].data.shift();
+  //   pos += 0.25;
+  //   $scope.dataset[0].data.push([pos, Math.sin(pos)]);
+  //
+  // }, 400);
 
   $scope.$on('destroy', function() {
     intervalHandle.cancel();
