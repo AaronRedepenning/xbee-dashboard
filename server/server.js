@@ -38,7 +38,15 @@ io.on('connection', function(socket){
 	if (xbee_set === false) {
 			xbeeAPI.on("frame_object", function(frame) {
         console.log(frame);
-				io.emit('update', frame);
+        var data = {
+          type: frame.type,
+          remote64: frame.remote64,
+          remote16: frame.remote16,
+          receiveOptions: frame.receiveOptions,
+          temperature: frame.data[0],
+          humidity: frame.data[1]
+        };
+				io.emit('update', data);
 			});
 			xbee_set = true;
 		}

@@ -21,8 +21,8 @@ angular.module('dashboard', [
   $socket.on('update', function(message) {
     console.log(message.data);
     if(message.remote16 == 'fe78') {
-      $scope.averageTemp = message.data[0];
-      $scope.averageHum = message.data[1];
+      $scope.averageTemp = message.temperature;
+      $scope.averageHum = message.humidity;
     }
   });
 }]);
