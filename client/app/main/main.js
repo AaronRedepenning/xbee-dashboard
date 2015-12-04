@@ -40,6 +40,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
 
   // Watch Temperature Value from Socket.io
   $scope.$watch('averageTemp', function(newValue, oldValue) {
+    console.log("Temperature Changed");
     if($scope.tempDataset[0].data.length == dataMax) {
       $scope.tempDataset[0].data.shift();
     }
@@ -48,6 +49,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
 
   // Watch Humidity Value from Socket.io
   $scope.$watch('averageHum', function(newValue, oldValue) {
+    console.log("Humidity Changed");
     if($scope.humDataset[0].data.length == dataMax) {
       $scope.humDataset[0].data.shift();
     }
