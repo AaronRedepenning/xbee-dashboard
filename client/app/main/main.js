@@ -38,34 +38,40 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     colors: ["#5BA0D3"]
   };
 
-  // Watch Temperature Value from Socket.io
-  $scope.$watch('averageTemp', function(newValue, oldValue) {
-    console.log("Temperature Changed");
-    if($scope.tempDataset[0].data.length == dataMax) {
-      $scope.tempDataset[0].data.shift();
-    }
-    $scope.tempDataset[0].data.push(newValue);
-  });
-
-  // Watch Humidity Value from Socket.io
-  $scope.$watch('averageHum', function(newValue, oldValue) {
-    console.log("Humidity Changed");
-    if($scope.humDataset[0].data.length == dataMax) {
-      $scope.humDataset[0].data.shift();
-    }
-    $scope.humDataset[0].data.push(newValue);
-  });
-
-  // for (var i = 0; i < pos; i += 0.25) {
-  //   $scope.dataset[0].data.push([i, Math.sin(i)]);
-  // }
+  // // Watch Temperature Value from Socket.io
+  // $scope.$watch('averageTemp', function(newValue, oldValue) {
+  //   console.log("Temperature Changed");
+  //   if($scope.tempDataset[0].data.length == dataMax) {
+  //     $scope.tempDataset[0].data.shift();
+  //   }
+  //   $scope.tempDataset[0].data.push(newValue);
+  // });
   //
-  // var intervalHandle = $interval(function() {
-  //   $scope.dataset[0].data.shift();
-  //   pos += 0.25;
-  //   $scope.dataset[0].data.push([pos, Math.sin(pos)]);
-  //
-  // }, 400);
+  // // Watch Humidity Value from Socket.io
+  // $scope.$watch('averageHum', function(newValue, oldValue) {
+  //   console.log("Humidity Changed");
+  //   if($scope.humDataset[0].data.length == dataMax) {
+  //     $scope.humDataset[0].data.shift();
+  //   }
+  //   $scope.humDataset[0].data.push(newValue);
+  // });
+
+  // Fill datasets with random data
+  for (var i = 0; i < dataMax; i++) {
+    $scope.tempDataset[0].data.push([i, $scope.averageTemp]);
+    $scope.humDataset[0].data.push([i, $scope.averageTemp]);
+  }
+
+  var intervalHandle = $interval(function() {
+    dataMax++;
+    //Get rid of old data points
+    $scope.tempDataset[0].data.shift();
+    $scope.humDataset[0].data.shift();
+
+    //Add new data point
+    $scope.tempDataset[0].data.push([dataMax, $scope.averageTemp]);
+    $scope.humDataset[0].data.push([dataMax, $scope.averageTemp])
+  }, 400);
 
   $scope.$on('destroy', function() {
     intervalHandle.cancel();
