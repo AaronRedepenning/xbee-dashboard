@@ -19,7 +19,7 @@ angular.module('dashboard', [
   $scope.averageHum = 0;
 
   $socket.on('update', function(message) {
-    console.log(message);
+    console.log(message.data);
     if(message.remote16 == 'fe78') {
       $scope.averageTemp = message.data[0];
       $scope.averageHum = message.data[1];
