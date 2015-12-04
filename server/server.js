@@ -37,6 +37,7 @@ io.on('connection', function(socket){
 	// Set up event handler for recieveing xbee frames
 	if (xbee_set === false) {
 			xbeeAPI.on("frame_object", function(frame) {
+        console.log(frame);
 				io.emit('update', frame);
 			});
 			xbee_set = true;
