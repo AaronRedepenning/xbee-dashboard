@@ -46,7 +46,7 @@ angular.module('dashboard', [
 
 
     //Log sensors array for debugging
-    console.log(sensors);
+    console.log($scope.sensors);
   });
 
   var averageTemp = function() {
