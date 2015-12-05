@@ -60,6 +60,14 @@ body {
   background-color: #fafafa;
   color: inherit;
   margin-bottom: 0;
-  padding: 14px 15px 7px;
+  padding: 8px 8px 7px;
   min-height: 30px;
+}
+
+.widget-footer .stat {
+  float: right;
+}
+
+.font-bold {
+  font-weight: 600;
 }
