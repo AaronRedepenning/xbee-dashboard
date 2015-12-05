@@ -42,10 +42,6 @@ angular.module('dashboard', [
     //Calculate average temperature and humidity
     $scope.averageTemp = averageTemp();
     $scope.averageHum = averageHum();
-
-
-    //Log sensors array for debugging
-    console.log($scope.sensors);
   });
 
   var averageTemp = function() {
