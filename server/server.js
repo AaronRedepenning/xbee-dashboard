@@ -4,6 +4,7 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var SerialPort = require('serialport').SerialPort;
 var xbee_api = require('xbee-api');
+var bodyParser = require('body-parser');
 var config = require('./config.js');
 
 // Express use for serving static files
