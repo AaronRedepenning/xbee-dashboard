@@ -44,7 +44,7 @@ angular.module('dashboard', [
     $scope.sensors.forEach(function(element, index, array) {
       avg += element.temp;
     });
-    return avg == 0 ? 0 : (avg/$scope.sensors.length);
+    return avg == 0 ? 0 : Math.floor(avg/$scope.sensors.length);
   };
 
   $scope.averageHum = function() {
@@ -52,7 +52,7 @@ angular.module('dashboard', [
     $scope.sensors.forEach(function(element, index, array) {
       avg += element.hum;
     });
-    return avg == 0 ? 0 : (avg/$scope.sensors.length);
+    return avg == 0 ? 0 : Math.floor(avg/$scope.sensors.length);
   };
 
 }]);

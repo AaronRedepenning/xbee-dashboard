@@ -61,8 +61,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
 
   //Function
   var appendPlot = function(datasets, sensor, xValue, yValue) {
-    var idx = -1;
-    idx = datasets.findIndex(function(dataset, index, array) {
+    var idx = datasets.findIndex(function(dataset, index, array) {
       if(dataset.label == sensor.remote16) {
         return true;
       }
