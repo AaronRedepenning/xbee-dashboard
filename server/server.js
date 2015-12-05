@@ -10,7 +10,7 @@ var config = require('./config.js');
 // Express use for serving static files
 app.use(express.static('../client/app'));
 app.use(express.static('../client'));
-app.user(bodyParser.json());
+app.use(bodyParser.json());
 
 // XBee Variables
 var C = xbee_api.constants,
