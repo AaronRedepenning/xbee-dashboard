@@ -61,7 +61,8 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
 
   //Function
   var appendPlot = function(datasets, sensor, xValue, yValue) {
-    var idx = $scope.datasets.findIndex(function(dataset, index, array) {
+    var idx = -1;
+    idx = datasets.findIndex(function(dataset, index, array) {
       if(dataset.label == sensor.remote16) {
         return true;
       }
@@ -71,10 +72,10 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     });
 
     if(idx != -1) { //The remote16 was found
-      $scope.datasets[idx].data.push([xValue, yValue]);
+      datasets[idx].data.push([xValue, yValue]);
     }
     else { //The remote16 wasn't found
-      $scope.tempDatasets.push({ data: [xValue, yValue], yaxis: 1, label: sensor.remote16 });
+      datasets.push({ data: [xValue, yValue], yaxis: 1, label: sensor.remote16 });
     }
   };
 

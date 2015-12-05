@@ -18,7 +18,7 @@ angular.module('dashboard', [
   $scope.sensors = [];
 
   $socket.on('update', function(message) {
-    //Find if sensor remote16 is already in the $scope.sensors array
+    //Find if sensor remote16 is already in the $scope.sensor
     var index = $scope.sensors.findIndex(function(element, index, array) {
       if(element.remote16 == message.remote16) {
         return true;
