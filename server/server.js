@@ -10,6 +10,9 @@ var config = require('./config.js');
 // Express use for serving static files
 app.use(express.static('../client/app'));
 app.use(express.static('../client'));
+
+// Confiure app to use bodyParser(), it allows data to be
+// extraced from http POSTs
 app.use(bodyParser.json());
 
 // XBee Variables
@@ -24,39 +27,52 @@ xbeeAPI = new xbee_api.XBeeAPI({
 });
 
 // Use serial port settings in config file and apply xbee parser
-serialport = new SerialPort(config.xbee.serialPort, {
-	baudrate: config.xbee.baudrate,
-  parser: xbeeAPI.rawParser()
-});
+// serialport = new SerialPort(config.xbee.serialPort, {
+// 	baudrate: config.xbee.baudrate,
+//   parser: xbeeAPI.rawParser()
+// });
 
 // Set up routes
 app.get('/', function(req, res) {
 	res.sendfile(__dirname + "/index.html");
 });
 
+app.get('/tasks.json', function(req, res) {
+  res.json({Name: "Aaron Redepenning"});
+});
+
 app.get('/nodes/:node.json', function(req, res) {
-  res.json(__dirname + '/nodes/' + req.params.node + '.json');
+  if(req.params.node == 101) {
+    res.sendFile(__dirname + '/nodes/' + req.params.node + '.json');
+  }
+  else {
+    res.status(404).send('Not Found');
+  }
+});
+
+app.get('/nodes/:node.png', function (req, res) {
+    res.sendFile(__dirname + "/nodes/101.png");
 });
 
 // Socket.io emmitters
-io.on('connection', function(socket){
-	// Set up event handler for recieveing xbee frames
-	if (xbee_set === false) {
-			xbeeAPI.on("frame_object", function(frame) {
-        console.log(frame);
-        var data = {
-          type: frame.type,
-          remote64: frame.remote64,
-          remote16: frame.remote16,
-          receiveOptions: frame.receiveOptions,
-          temperature: frame.data[0],
-          humidity: frame.data[1]
-        };
-				io.emit('update', data);
-			});
-			xbee_set = true;
-		}
-});
+// io.on('connection', function(socket){
+// 	// Set up event handler for recieveing xbee frames
+// 	if (xbee_set === false) {
+// 			xbeeAPI.on("frame_object", function(frame) {
+//         console.log(frame);
+//         var data = {
+//           type: frame.type,
+//           remote64: frame.remote64,
+//           remote16: frame.remote16,
+//           receiveOptions: frame.receiveOptions,
+//           temperature: frame.data[0],
+//           humidity: frame.data[1]
+//         };
+// 				io.emit('update', data);
+// 			});
+// 			xbee_set = true;
+// 		}
+// });
 
 // Start Server
 var server = http.listen(config.server.listenPort, function() {

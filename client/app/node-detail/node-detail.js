@@ -7,8 +7,21 @@ angular.module('dashboard.node-detail', ['ngRoute', 'dashboard.node-detail.senso
   });
 }])
 
-.controller('NodeDetailCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
-  $scope.nodeId = $routeParams.nodeId;
-  this.hardwareImage = 'http://placehold.it/800x350';
-  this.hardwareInfo = [['Pin #', 'A0'], ['Sampling Period', '3 seconds'], ['Aaron', 'Redepenning']];
+.controller('NodeDetailCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+  var ctrl = this;
+  this.nodeId = $routeParams.nodeId;
+  this.hardwareImage = '';
+  this.hardwareInfo = [];
+  this.xbSettings = [];
+  this.sensors = [];
+
+  $http.get('/nodes/' + this.nodeId + '.json')
+  .then(function(response) {
+    console.log(response);
+    ctrl.hardwareImage = response.data.diagramImage;
+    ctrl.hardwareInfo = response.data.info;
+    ctrl.xbSettings = response.data.xbeeSettings;
+    ctrl.sensors = response.data.sensors;
+  });
+
 }]);

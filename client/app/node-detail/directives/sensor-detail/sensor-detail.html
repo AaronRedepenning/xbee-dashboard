@@ -1,50 +1,40 @@
-<div ng-controller="SensorDetailCtrl as SensorCtrl" class="row">
+<div class="row">
   <!--Sensor Info-->
-  <div class="col-md-3">
-    <div>
-      <img ng-src="{{SensorCtrl.sensorImage}}" alt="Sensor Image" class="img-responsive">
+  <div class="col-md-7">
+    <div class="col-md-6">
+        <img ng-src="{{sensorData.image}}" alt="Sensor Image" class="img-responsive">
     </div>
-    <div>
+    <div class="col-md-6">
       <p>
-        {{SensorCtrl.sensorDescription}}
+        {{sensorData.description}}
       </p>
     </div>
+    <div class="col-md-12">
+      <h5>Specs</h5>
+      <ul>
+        <li ng-repeat="spec in sensorData.specs">{{spec}}</li>
+      </ul>
+    </div>
   </div>
+
   <!--/Sensor Info-->
 
-  <div class="col-md-6">
-    <div class="row">
-      <p>
-        {{SensorCtrl.equation}}
-      </p>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        {{nodeId}}
-      </div>
-      <div class="col-sm-6">
-        {{nodeId}}
-      </div>
-    </div>
-    <div class="row">
-      <p>
-        {{SensorCtrl.equation}}
-      </p>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        {{nodeId}}
-      </div>
-      <div class="col-sm-6">
-        {{nodeId}}
-      </div>
-    </div>
-  </div>
-
   <!--Current Value-->
-  <div class="col-md-3">
-    {{nodeId}}
-    <i class="wi wi-fahrenheit"></i>
+  <div class="col-md-5 text-center">
+    <table class="table table-striped">
+      <tr>
+        <td>Bit Value</td>
+        <td>1024</td>
+      </tr>
+      <tr>
+        <td>Voltage</td>
+        <td>5v</td>
+      </tr>
+      <tr>
+        <td>Temperature</td>
+        <td>101<i class="wi wi-fahrenheit"></i></td>
+      </tr>
+    </table>
   </div>
   <!--/Current Value-->
 </div>

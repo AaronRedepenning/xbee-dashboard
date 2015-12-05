@@ -18,8 +18,8 @@
               <h5>Info:</h5>
               <table class="table table-striped">
                 <tr ng-repeat="info in NodeCtrl.hardwareInfo">
-                  <td>{{info[0]}}</td>
-                  <td>{{info[1]}}</td>
+                  <td>{{info.key}}</td>
+                  <td>{{info.value}}</td>
                 </tr>
               </table>
             </div>
@@ -29,30 +29,16 @@
       <!--Hardware Block Diagram-->
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6" ng-repeat="sensor in NodeCtrl.sensors">
       <div class="widget">
         <div class="widget-header">
-          <h5>Temperature Sensor - TMP36</h5>
+          <h5>{{sensor.name}} - {{sensor.type}}</h5>
           <div class="tools">
             <i class="wi wi-thermometer"></i>
           </div>
         </div>
         <div class="widget-body">
-          <sensor-detail></sensor-detail>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="widget">
-        <div class="widget-header">
-          <h5>Photocell Resistor</h5>
-          <div class="tools">
-            <i class="wi wi-horizon-alt"></i>
-          </div>
-        </div>
-        <div class="widget-body">
-          <sensor-detail></sensor-detail>
+          <sensor-detail data="sensor"></sensor-detail>
         </div>
       </div>
     </div>
@@ -64,40 +50,11 @@
         </div>
         <div class="widget-body">
           <table class="table table-striped">
-            <tr>
-              <td>Hello World</td>
-              <td>Testing</td>
-              <td>Aaron Redepenning</td>
-            </tr>
-            <tr>
-              <td>Hello World</td>
-              <td>Testing</td>
-              <td>Aaron Redepenning</td>
-            </tr>
-            <tr>
-              <td>Hello World</td>
-              <td>Testing</td>
-              <td>Aaron Redepenning</td>
-            </tr>
-            <tr>
-              <td>Hello World</td>
-              <td>Testing</td>
-              <td>Aaron Redepenning</td>
-            </tr>
-            <tr>
-              <td>Hello World</td>
-              <td>Testing</td>
-              <td>Aaron Redepenning</td>
-            </tr>
-            <tr>
-              <td>Hello World</td>
-              <td>Testing</td>
-              <td>Aaron Redepenning</td>
-            </tr>
-            <tr>
-              <td>Hello World</td>
-              <td>Testing</td>
-              <td>Aaron Redepenning</td>
+            <tr ng-repeat="xbSetting in NodeCtrl.xbSettings">
+              <td>{{xbSetting.setting}}</td>
+              <td>{{xbSetting.description}}</td>
+              <td>{{xbSetting.range}}</td>
+              <td>{{xbSetting.value}}</td>
             </tr>
           </table>
         </div>
