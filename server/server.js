@@ -27,10 +27,10 @@ xbeeAPI = new xbee_api.XBeeAPI({
 });
 
 // Use serial port settings in config file and apply xbee parser
-// serialport = new SerialPort(config.xbee.serialPort, {
-// 	baudrate: config.xbee.baudrate,
-//   parser: xbeeAPI.rawParser()
-// });
+serialport = new SerialPort(config.xbee.serialPort, {
+	baudrate: config.xbee.baudrate,
+  parser: xbeeAPI.rawParser()
+});
 
 // Set up routes
 app.get('/', function(req, res) {
@@ -54,25 +54,25 @@ app.get('/nodes/:node.png', function (req, res) {
     res.sendFile(__dirname + "/nodes/101.png");
 });
 
-// Socket.io emmitters
-// io.on('connection', function(socket){
-// 	// Set up event handler for recieveing xbee frames
-// 	if (xbee_set === false) {
-// 			xbeeAPI.on("frame_object", function(frame) {
-//         console.log(frame);
-//         var data = {
-//           type: frame.type,
-//           remote64: frame.remote64,
-//           remote16: frame.remote16,
-//           receiveOptions: frame.receiveOptions,
-//           temperature: frame.data[0],
-//           humidity: frame.data[1]
-//         };
-// 				io.emit('update', data);
-// 			});
-// 			xbee_set = true;
-// 		}
-// });
+Socket.io emmitters
+io.on('connection', function(socket){
+	// Set up event handler for recieveing xbee frames
+	if (xbee_set === false) {
+			xbeeAPI.on("frame_object", function(frame) {
+        console.log(frame);
+        var data = {
+          type: frame.type,
+          remote64: frame.remote64,
+          remote16: frame.remote16,
+          receiveOptions: frame.receiveOptions,
+          temperature: frame.data[0],
+          humidity: frame.data[1]
+        };
+				io.emit('update', data);
+			});
+			xbee_set = true;
+		}
+});
 
 // Start Server
 var server = http.listen(config.server.listenPort, function() {
