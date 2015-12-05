@@ -49,7 +49,7 @@ angular.module('dashboard', [
     console.log(sensors);
   });
 
-  averageTemp = function() {
+  var averageTemp = function() {
     var avg = 0;
     $scope.sensors.forEach(function(element, index, array) {
       avg += element.temp;
@@ -57,7 +57,7 @@ angular.module('dashboard', [
     return avg == 0 ? 0 : Math.floor(avg/$scope.sensors.length);
   };
 
-  averageHum = function() {
+  var averageHum = function() {
     var avg = 0;
     $scope.sensors.forEach(function(element, index, array) {
       avg += element.hum;
