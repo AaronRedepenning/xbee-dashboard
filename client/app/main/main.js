@@ -11,10 +11,14 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
 
 .controller('MainCtrl', ['$interval', '$scope', '$socket', function($interval, $scope, $socket) {
   var ctrl = this,
-      dataMax = 30;
+      dataMax = 30,
+      xCount = 0;
 
-  $scope.tempDataset = [{ data: [], yaxis: 1, label: 'Temperature' }];
-  $scope.humDataset = [{ data: [], yaxis: 1, label: 'Humidity' }];
+  //Datasets format: { data: [], yaxis: 1, label: 'Temperature' }
+  $scope.tempDatasets = [];
+  $scope.humDatasets = [];
+
+  //Flot Chart Settings
   $scope.options = {
     series: {
       lines: {
@@ -38,41 +42,50 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     colors: ["#5BA0D3"]
   };
 
-  // // Watch Temperature Value from Socket.io
-  // $scope.$watch('averageTemp', function(newValue, oldValue) {
-  //   console.log("Temperature Changed");
-  //   if($scope.tempDataset[0].data.length == dataMax) {
-  //     $scope.tempDataset[0].data.shift();
-  //   }
-  //   $scope.tempDataset[0].data.push(newValue);
-  // });
-  //
-  // // Watch Humidity Value from Socket.io
-  // $scope.$watch('averageHum', function(newValue, oldValue) {
-  //   console.log("Humidity Changed");
-  //   if($scope.humDataset[0].data.length == dataMax) {
-  //     $scope.humDataset[0].data.shift();
-  //   }
-  //   $scope.humDataset[0].data.push(newValue);
-  // });
-
-  // Fill datasets with random data
-  for (var i = 0; i < dataMax; i++) {
-    $scope.tempDataset[0].data.push([i, $scope.averageTemp]);
-    $scope.humDataset[0].data.push([i, $scope.averageTemp]);
-  }
-
+  //Interval -> 500ms
   var intervalHandle = $interval(function() {
-    dataMax++;
-    //Get rid of old data points
-    $scope.tempDataset[0].data.shift();
-    $scope.humDataset[0].data.shift();
+    xCount++;
+    //Remove oldest values to get graph shifting effect
+    $scope.tempDatasets.forEach(shiftPlot);
+    $scope.humDatasets.forEach(shiftPlot);
 
-    //Add new data point
-    $scope.tempDataset[0].data.push([dataMax, $scope.averageTemp]);
-    $scope.humDataset[0].data.push([dataMax, $scope.averageHum])
-  }, 400);
+    $scope.sensors.forEach(function(sensor, index, array) {
+      //Does this sensor already exist on Graph, if so just append data.
+      //Otherwise create a new dataset for the sensor
+      appendPlot(tempDatasets, sensor, xCount, sensor.temp);
+      appendPlot(humDatasets, sensor, xCount, sensor.hum);
+    });
 
+  }, 500);
+
+
+  //Function
+  var appendPlot = function(datasets, sensor, xValue, yValue) {
+    var idx = $scope.datasets.findIndex(function(dataset, index, array) {
+      if(dataset.label == sensor.remote16) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+
+    if(idx != -1) { //The remote16 was found
+      $scope.datasets[idx].data.push([xValue, yValue);
+    }
+    else { //The remote16 wasn't found
+      $scope.tempDatasets.push({ data: [xValue, yValue], yaxis: 1, label: sensor.remote16 });
+    }
+  };
+
+  //Function
+  var shiftPlot = function(element, index, array) {
+    if(element.data.length >= dataMax) {
+      element.data.shift();
+    }
+  };
+
+  //Clean Up
   $scope.$on('destroy', function() {
     intervalHandle.cancel();
   });

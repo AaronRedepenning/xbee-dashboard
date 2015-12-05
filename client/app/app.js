@@ -15,15 +15,46 @@ angular.module('dashboard', [
 }])
 
 .controller('GlobalCtrl', ['$scope', '$socket', function($scope, $socket) {
-  $scope.averageTemp = 0;
-  $scope.averageHum = 0;
+  $scope.sensors = [];
 
   $socket.on('update', function(message) {
-    if(message.remote16 == 'fe78') {
-      $scope.averageTemp = message.temperature;
-      $scope.averageHum = message.humidity;
+    //Find if sensor remote16 is already in the $scope.sensors array
+    var index = $scope.sensors.findIndex(function(element, index, array) {
+      if(element.remote16 == message.remote16) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+
+    if(index != -1) {
+      //This remote16 was found. Update the temp and hum values for it.
+      $scope.sensors[index].temp = message.temperature;
+      $scope.sensors[index].hum = message.humidity;
+    }
+    else {
+      //This remote16 wasn't found. New node so add it to array.
+      $scope.sensors.push({id:message.remote16, temp: message.temperature, hum: message.humidity});
     }
   });
+
+  $scope.averageTemp = function() {
+    var avg = 0;
+    $scope.sensors.forEach(function(element, index, array) {
+      avg += element.temp;
+    });
+    return avg == 0 ? 0 : (avg/$scope.sensors.length);
+  };
+
+  $scope.averageHum = function() {
+    var avg = 0;
+    $scope.sensors.forEach(function(element, index, array) {
+      avg += element.hum;
+    });
+    return avg == 0 ? 0 : (avg/$scope.sensors.length);
+  };
+
 }]);
 
 /* XBee Station Type#2 Frame Example
