@@ -71,7 +71,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     });
 
     if(idx != -1) { //The remote16 was found
-      $scope.datasets[idx].data.push([xValue, yValue);
+      $scope.datasets[idx].data.push([xValue, yValue]);
     }
     else { //The remote16 wasn't found
       $scope.tempDatasets.push({ data: [xValue, yValue], yaxis: 1, label: sensor.remote16 });
