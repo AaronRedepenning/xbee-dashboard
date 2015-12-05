@@ -1,0 +1,34 @@
+{
+  "BlockDiagram": "",
+  "Info": [
+    {"Key": "Pin #", "Value": "A0"},
+    {"Key": "Sampling Period", "Value": "3 Seconds"},
+    {"Key": "Key", "Value": "Value"},
+    {"Key": "Key", "Value": "Value"}
+  ],
+  "Sensors": [
+    {
+      "Name": "DHT22",
+      "Type": "Temperature/Humidity",
+      "Description": "This is the description",
+      "Equation": "$$ y = 4 * x $$"
+    },
+    {
+      "Name": "Photoresistor",
+      "Type": "Light",
+      "Description": "This is the description",
+      "Equation": "$$ y = 67 * x + 2 $$"
+    }
+  ],
+  "XBeeSettings": [
+    {"Setting": "Setting", "Value": "Value"},
+    {"Setting": "Setting", "Value": "Value"},
+    {"Setting": "Setting", "Value": "Value"},
+    {"Setting": "Setting", "Value": "Value"},
+    {"Setting": "Setting", "Value": "Value"},
+    {"Setting": "Setting", "Value": "Value"},
+    {"Setting": "Setting", "Value": "Value"},
+    {"Setting": "Setting", "Value": "Value"},
+    {"Setting": "Aaron", "Value": "Redepenning"}
+  ]
+}

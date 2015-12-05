@@ -9,6 +9,7 @@ var config = require('./config.js');
 // Express use for serving static files
 app.use(express.static('../client/app'));
 app.use(express.static('../client'));
+app.user(bodyParser.json());
 
 // XBee Variables
 var C = xbee_api.constants,
@@ -30,6 +31,10 @@ serialport = new SerialPort(config.xbee.serialPort, {
 // Set up routes
 app.get('/', function(req, res) {
 	res.sendfile(__dirname + "/index.html");
+});
+
+app.get('/nodes/:node.json', function(req, res) {
+  res.json(__dirname + '/nodes/' + req.params.node + '.json');
 });
 
 // Socket.io emmitters
