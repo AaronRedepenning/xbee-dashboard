@@ -21,12 +21,11 @@ angular.module('dashboard', [
 
   $socket.on('update', function(message) {
     //Find if sensor remote16 is already in the $scope.sensor
-    var index = $scope.sensors.findIndex(function(element, index, array) {
-      if(element.remote16 == message.remote16) {
-        return true;
-      }
-      else {
-        return false;
+    var idx = -1;
+    $scope.sensors.forEach(function(element, index, array) {
+      if(element.id == message.remote16) {
+        idx = index;
+        break;
       }
     });
 
@@ -54,7 +53,7 @@ angular.module('dashboard', [
     $scope.sensors.forEach(function(element, index, array) {
       avg += element.temp;
     });
-    return avg == 0 ? 0 : Math.floor(avg/$scope.sensors.length);
+    return avg == 0 ? 0 : avg/$scope.sensors.length;
   };
 
   var averageHum = function() {
@@ -62,7 +61,7 @@ angular.module('dashboard', [
     $scope.sensors.forEach(function(element, index, array) {
       avg += element.hum;
     });
-    return avg == 0 ? 0 : Math.floor(avg/$scope.sensors.length);
+    return avg == 0 ? 0 : avg/$scope.sensors.length;
   };
 
 }]);
