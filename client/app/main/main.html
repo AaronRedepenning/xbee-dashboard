@@ -11,8 +11,8 @@
           </div>
         </div>
         <div class="widget-body text-center">
-          <flot dataset="tempDatasets" options="options" height="300px"></flot>
-          <span>Time</span>
+          <flot dataset="tempDatasets" options="options" height="250px"></flot>
+          <span>Time (seconds)</span>
         </div>
       </div>
     </div>
@@ -30,7 +30,9 @@
         <div class="widget-body text-center">
           <h3>{{averageTemp}}
           <i class="wi wi-fahrenheit"></i></h3>
-
+        </div>
+        <div class="widget-footer">
+          Some sort of footer
         </div>
       </div>
     </div>
@@ -40,14 +42,14 @@
     <div class="col-md-9">
       <div class="widget">
         <div class="widget-header">
-          <h5>Humidity</h5>
+          <h5>Relative Humidity (RH)</h5>
           <div class="tools">
             <i class="wi wi-humidity"></i>
           </div>
         </div>
         <div class="widget-body text-center">
-          <flot dataset="humDatasets" options="options" height="300px"></flot>
-          <span>Time</span>
+          <flot dataset="humDatasets" options="options" height="250px"></flot>
+          <span>Time (seconds)</span>
         </div>
       </div>
     </div>
@@ -57,13 +59,16 @@
     <div class="col-md-3">
       <div class="widget">
         <div class="widget-header">
-          <h5>Relative Humidity</h5>
+          <h5>Average RH</h5>
           <div class="tools">
             <i class="wi wi-humidity"></i>
           </div>
         </div>
         <div class="widget-body text-center">
           <h3>{{averageHum}}%</h3>
+        </div>
+        <div class="widget-footer">
+          Some sort of footer
         </div>
       </div>
     </div>
