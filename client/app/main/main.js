@@ -52,8 +52,8 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     $scope.sensors.forEach(function(sensor, index, array) {
       //Does this sensor already exist on Graph, if so just append data.
       //Otherwise create a new dataset for the sensor
-      appendPlot(tempDatasets, sensor, xCount, sensor.temp);
-      appendPlot(humDatasets, sensor, xCount, sensor.hum);
+      appendPlot($scope.tempDatasets, sensor, xCount, sensor.temp);
+      appendPlot($scope.humDatasets, sensor, xCount, sensor.hum);
     });
 
   }, 500);
