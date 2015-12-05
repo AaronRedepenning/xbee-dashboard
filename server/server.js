@@ -54,7 +54,7 @@ app.get('/nodes/:node.png', function (req, res) {
     res.sendFile(__dirname + "/nodes/101.png");
 });
 
-Socket.io emmitters
+//Socket.io emmitters
 io.on('connection', function(socket){
 	// Set up event handler for recieveing xbee frames
 	if (xbee_set === false) {
