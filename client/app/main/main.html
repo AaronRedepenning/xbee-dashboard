@@ -1,67 +1,8 @@
 <div ng-controller="MainCtrl as mainCtrl">
-  <!--Sensor Guages-->
-  <div class="row">
-    <div class="col-md-3">
-      <div class="widget">
-        <div class="widget-header">
-          <h5>Average Temperature</h5>
-          <div class="tools">
-            <i class="wi wi-thermometer"></i>
-          </div>
-        </div>
-        <div class="widget-body text-center">
-          <h3>{{averageTemp}}
-          <i class="wi wi-fahrenheit"></i></h3>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="widget">
-        <div class="widget-header">
-          <h5>Relative Humidity</h5>
-          <div class="tools">
-            <i class="wi wi-humidity"></i>
-          </div>
-        </div>
-        <div class="widget-body text-center">
-          <h3>{{averageHum}}%</h3>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="widget">
-        <div class="widget-header">
-          <h5>Node #1 Light</h5>
-          <div class="tools">
-            <i class="wi wi-earthquake"></i>
-          </div>
-        </div>
-        <div class="widget-body text-center">
-          <h3>{{0}}</h3>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="widget">
-        <div class="widget-header">
-          <h5>Node #2 Light</h5>
-          <div class="tools">
-            <i class="wi wi-earthquake"></i>
-          </div>
-        </div>
-        <div class="widget-body text-center">
-          <h3>{{0}}</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--/Sensor Guages-->
 
   <div class="row">
     <!--Temperature Chart-->
-    <div class="col-md-6">
+    <div class="col-md-9">
       <div class="widget">
         <div class="widget-header">
           <h5>Temperature</h5>
@@ -77,8 +18,26 @@
     </div>
     <!--/Temperature Chart-->
 
+    <!-- Temperature Guage -->
+    <div class="col-md-3">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Average Temperature</h5>
+          <div class="tools">
+            <i class="wi wi-thermometer"></i>
+          </div>
+        </div>
+        <div class="widget-body text-center">
+          <h3>{{averageTemp}}
+          <i class="wi wi-fahrenheit"></i></h3>
+
+        </div>
+      </div>
+    </div>
+    <!--/Temperature Guage-->
+
     <!--Humidity Chart-->
-    <div class="col-md-6">
+    <div class="col-md-9">
       <div class="widget">
         <div class="widget-header">
           <h5>Humidity</h5>
@@ -93,6 +52,22 @@
       </div>
     </div>
     <!--/Humidity Chart-->
-  </div>
 
+    <!--Humidity Guage-->
+    <div class="col-md-3">
+      <div class="widget">
+        <div class="widget-header">
+          <h5>Relative Humidity</h5>
+          <div class="tools">
+            <i class="wi wi-humidity"></i>
+          </div>
+        </div>
+        <div class="widget-body text-center">
+          <h3>{{averageHum}}%</h3>
+        </div>
+      </div>
+    </div>
+    <!--/Humidity Guage-->
+
+  </div>
 </div>
