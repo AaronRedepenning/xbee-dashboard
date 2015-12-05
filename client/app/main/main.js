@@ -61,14 +61,13 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
 
   //Function
   var appendPlot = function(datasets, sensor, xValue, yValue) {
-    var idx = datasets.findIndex(function(dataset, index, array) {
-      if(dataset.label == sensor.remote16) {
-        return true;
+    var idx = -1;
+    for (var i = 0; i < datasets.length; i++) {
+      if(datasets[i].label == sensor.remote16) {
+        idx = i;
+        break;
       }
-      else {
-        return false;
-      }
-    });
+    }
 
     if(idx != -1) { //The remote16 was found
       datasets[idx].data.push([xValue, yValue]);

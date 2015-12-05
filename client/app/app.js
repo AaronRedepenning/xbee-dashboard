@@ -22,17 +22,17 @@ angular.module('dashboard', [
   $socket.on('update', function(message) {
     //Find if sensor remote16 is already in the $scope.sensor
     var idx = -1;
-    $scope.sensors.forEach(function(element, index, array) {
-      if(element.id == message.remote16) {
-        idx = index;
+    for (var i = 0; i < $scope.sensors.length; i++) {
+      if($scope.sensors[i].id == message.remote16) {
+        idx = i;
         break;
       }
-    });
+    }
 
-    if(index != -1) {
+    if(idx != -1) {
       //This remote16 was found. Update the temp and hum values for it.
-      $scope.sensors[index].temp = message.temperature;
-      $scope.sensors[index].hum = message.humidity;
+      $scope.sensors[idx].temp = message.temperature;
+      $scope.sensors[idx].hum = message.humidity;
     }
     else {
       //This remote16 wasn't found. New node so add it to array.
