@@ -42,7 +42,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     colors: ["#5BA0D3"]
   };
 
-  //Interval -> 500ms
+  //Interval -> 1sec
   var intervalHandle = $interval(function() {
     xCount++;
     //Remove oldest values to get graph shifting effect
@@ -55,8 +55,8 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
       appendPlot($scope.tempDatasets, sensor, xCount, sensor.temp);
       appendPlot($scope.humDatasets, sensor, xCount, sensor.hum);
     });
-
-  }, 500);
+    console.log($scope.tempDatasets);
+  }, 1000);
 
 
   //Function

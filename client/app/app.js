@@ -16,6 +16,8 @@ angular.module('dashboard', [
 
 .controller('GlobalCtrl', ['$scope', '$socket', function($scope, $socket) {
   $scope.sensors = [];
+  $scope.averageHum = 0;
+  $scope.averageTemp = 0;
 
   $socket.on('update', function(message) {
     //Find if sensor remote16 is already in the $scope.sensor
@@ -37,9 +39,17 @@ angular.module('dashboard', [
       //This remote16 wasn't found. New node so add it to array.
       $scope.sensors.push({id:message.remote16, temp: message.temperature, hum: message.humidity});
     }
+
+    //Calculate average temperature and humidity
+    $scope.averageTemp = averageTemp();
+    $scope.averageHum = averageHum();
+
+
+    //Log sensors array for debugging
+    console.log(sensors);
   });
 
-  $scope.averageTemp = function() {
+  averageTemp = function() {
     var avg = 0;
     $scope.sensors.forEach(function(element, index, array) {
       avg += element.temp;
@@ -47,7 +57,7 @@ angular.module('dashboard', [
     return avg == 0 ? 0 : Math.floor(avg/$scope.sensors.length);
   };
 
-  $scope.averageHum = function() {
+  averageHum = function() {
     var avg = 0;
     $scope.sensors.forEach(function(element, index, array) {
       avg += element.hum;
