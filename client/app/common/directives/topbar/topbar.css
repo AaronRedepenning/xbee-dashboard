@@ -9,7 +9,16 @@
 .navbar .navbar-top {
     border: 0;
     min-height: 55px;
-    background-color: #4285F4;
+    /* 4285F4 */
+    background-color: #4285F4; /* For browsers that don't support gradients */
+    /* For Safari 5.1 to 6.0 */
+    background-image: -webkit-linear-gradient(left, #2D5BA5 0%, #4285F4 100%);
+    /* For Opera 11.6 to 12.0 */
+    background-image: -o-linear-gradient(left, #2D5BA5 0%, #4285F4 100%);
+    /* For Firefox 3.6 to 15 */
+    background-image: -moz-linear-gradient(right, #2D5BA5 0%, #4285F4 100%);
+    /* Standard Syntax */
+    background-image: linear-gradient(to right, #2D5BA5 0%, #4285F4 100%);
 }
 
 .navbar .navbar-brand {

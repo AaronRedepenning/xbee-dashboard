@@ -42,7 +42,7 @@ app.get('/tasks.json', function(req, res) {
 });
 
 app.get('/nodes/:node.json', function(req, res) {
-  if(req.params.node == 101) {
+  if((req.params.node == 101) || (req.params.node == 202)) {
     res.sendFile(__dirname + '/nodes/' + req.params.node + '.json');
   }
   else {
@@ -51,7 +51,12 @@ app.get('/nodes/:node.json', function(req, res) {
 });
 
 app.get('/nodes/:node.png', function (req, res) {
-    res.sendFile(__dirname + "/nodes/101.png");
+  if((req.params.node == 101) || (req.params.node == 202)) {
+    res.sendFile(__dirname + '/nodes/' + req.params.node + '.png');
+  }
+  else {
+    res.status(404).send('Not Found');
+  }
 });
 
 //Socket.io emmitters

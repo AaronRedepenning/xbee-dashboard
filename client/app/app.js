@@ -2,11 +2,12 @@
 
 // Declare app level module which depends on views, and components
 angular.module('dashboard', [
-  'ngRoute',         // Anguler Module used for view routing
-  'dashboard.main',  // For module code see: .js files in /main
+  'ngRoute',           // Anguler Module used for view routing
+  'dashboard.main',    // For module code see: .js files in /main
   'dashboard.sidebar', // For module code see: .js files in /common
   'dashboard.topbar',
   'dashboard.node-detail',
+  'dashboard.weather',
   'ngSocket'
 ])
 
