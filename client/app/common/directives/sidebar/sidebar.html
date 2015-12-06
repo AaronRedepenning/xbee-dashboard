@@ -1,42 +1,35 @@
-<div class="sidebar-container" id="sidebar">
-  <!-- Page Sidebar Header-->
-  <div class="sidebar-header-wrapper">
-    <i class="fa fa-search"></i>
-    <input type="text" class="searchinput">
-  </div>
-  <!-- /Page Sidebar Header -->
+<div class="sidebar-container" id="sidebar" ng-controller="SidebarCtrl">
   <!-- Sidebar Menu -->
   <ul class="nav">
-      <!--Dashboard-->
-      <li class="active">
-          <a href="home.html">
-              <i class="fa fa-tachometer"></i>
-              <span class="menu-text"> Dashboard </span>
-          </a>
-      </li>
-      <!--Control-->
-      <li>
-          <a href="control.html">
-              <i class="fa fa-toggle-on"></i>
-              <span class="menu-text"> Control </span>
-          </a>
-      </li>
-      <!--Charts-->
-      <li>
-          <a href="charts.html" class="menu-dropdown">
-              <i class="menu-icon fa fa-bar-chart-o"></i>
-              <span class="menu-text"> Charts </span>
+    <!--Dashboard-->
+    <li ng-class="{ active : isActive('/main')}">
+      <a href="#/main">
+        <i class="fa fa-home"></i>
+        <h5>Home</h5>
+      </a>
+    </li>
 
-              <i class="menu-expand"></i>
-          </a>
-      </li>
-      <!--Devices-->
-      <li>
-          <a href="devices.html">
-              <i class="menu-icon fa fa-th"></i>
-              <span class="menu-text"> Devices </span>
-          </a>
-      </li>
+    <li ng-class="{ active : isActive('/nodes/101')}">
+      <a href="#/nodes/101">
+        <i class="fa fa-wifi"></i>
+        <h5>Node #1</h5>
+      </a>
+    </li>
+
+    <li ng-class="{ active : isActive('/nodes/202')}">
+      <a href="#/nodes/202">
+        <i class="fa fa-wifi"></i>
+        <h5>Node #2</h5>
+      </a>
+    </li>
+
+    <li ng-class="{ active : isActive('/weather')}">
+      <a href="">
+        <i class="wi wi-day-cloudy"></i>
+        <h5>Weather</h5>
+      </a>
+    </li>
+
   </ul>
   <!-- /Sidebar Menu -->
 </div>

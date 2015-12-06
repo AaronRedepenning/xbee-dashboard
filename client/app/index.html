@@ -26,6 +26,7 @@
   <!-- App specific custom styles -->
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="common/directives/topbar/topbar.css">
+  <link rel="stylesheet" href="common/directives/sidebar/sidebar.css">
   <link rel="stylesheet" href="main/main.css">
 
   <!-- modernizr-2 script (feature detection and browser support) - docs at: https://modernizr.com/ -->
@@ -46,9 +47,16 @@
   <dashboard-topbar></dashboard-topbar>
   <!--//Top Navigation Bar-->
 
+  <!--Side Navigation Bar - See Template: /app/common/directives/sidebar/sidebar.html-->
+  <dashboard-sidebar></dashboard-sidebar>
+  <!--//Side Navigation Bar-->
+
   <!-- Main Dashboard Content -->
   <div class="container-fluid">
-    <div class="main-content" ng-view></div>
+    <div class="main-content">
+      <div ng-view></div>
+      <dashboard-footer></dashboard-footer>
+    </div>
   </div>
   <!--//Main Dashboard Content-->
 
@@ -81,6 +89,7 @@
   <script src="app.js"></script>
   <script src="main/main.js"></script>
   <script src="common/directives/topbar/topbar.js"></script>
+  <script src="common/directives/sidebar/sidebar.js"></script>
   <script src="node-detail/node-detail.js"></script>
   <script src="node-detail/directives/sensor-detail/sensor-detail.js"></script>
 </body>

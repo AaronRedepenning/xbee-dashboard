@@ -1,4 +1,4 @@
-angular.module('dashboard.common', [])
+angular.module('dashboard.topbar', [])
 
 .directive('dashboardTopbar', function() {
   return {
