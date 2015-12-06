@@ -8,10 +8,6 @@ body {
 
 .main-content {
   position: relative;
-  margin: 70px 0 0 75px;
-}
-
-.main-content.collapsed {
   margin: 70px 0 0 0;
 }
 
