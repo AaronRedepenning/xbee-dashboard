@@ -20,6 +20,7 @@ angular.module('dashboard', [
   $scope.sensors = [];
   $scope.averageHum = 0;
   $scope.averageTemp = 0;
+  $scope.isCollapsed = true;
 
   $socket.on('update', function(message) {
     //Find if sensor remote16 is already in the $scope.sensor
