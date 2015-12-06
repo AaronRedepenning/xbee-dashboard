@@ -71,3 +71,7 @@ body {
 .font-bold {
   font-weight: 600;
 }
+
+table {
+  overflow-x: auto;
+}
