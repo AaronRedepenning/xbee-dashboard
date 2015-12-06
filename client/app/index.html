@@ -44,16 +44,16 @@
 <body ng-controller="GlobalCtrl">
 
   <!--Top Navigation Bar - See Template: /app/common/directives/topbar/topbar.html-->
-  <dashboard-topbar></dashboard-topbar>
+  <dashboard-topbar collapsed="isCollapsed"></dashboard-topbar>
   <!--//Top Navigation Bar-->
 
   <!--Side Navigation Bar - See Template: /app/common/directives/sidebar/sidebar.html-->
-  <dashboard-sidebar></dashboard-sidebar>
+  <dashboard-sidebar ng-class="{hidden : isCollapsed}"></dashboard-sidebar>
   <!--//Side Navigation Bar-->
 
   <!-- Main Dashboard Content -->
   <div class="container-fluid">
-    <div class="main-content">
+    <div class="main-content" ng-class="{collapsed : isCollapsed}">
       <div ng-view></div>
       <dashboard-footer></dashboard-footer>
     </div>
