@@ -27,15 +27,16 @@
             <i class="wi wi-thermometer"></i>
           </div>
         </div>
-        <div class="widget-body text-center">
+        <div class="widget-body">
           <div class="text-center">
             <h3>{{averageTemp}}
             <i class="wi wi-fahrenheit"></i></h3>
           </div>
-          <small ng-repeat="sensor in sensors">
-            Node {{sensor.id}} -> {{sensor.temp}}
-            <i class="wi wi-fahrenheit"></i>
-          </small>
+          <div ng-repeat="sensor in sensors">
+            <strong>Node {{sensor.id}} </strong>
+            <small > {{sensor.temp}}<i class="wi wi-fahrenheit"></i></small>
+          </div>
+
         </div>
         <div class="widget-footer">
           <small>Total Nodes</small>
@@ -74,13 +75,14 @@
             <i class="wi wi-humidity"></i>
           </div>
         </div>
-        <div class="widget-body text-center">
+        <div class="widget-body">
           <div class="text-center">
             <h3>{{averageHum}}%</h3>
           </div>
-          <small ng-repeat="sensor in sensors">
-            Node {{sensor.id}} -> {{sensor.hum}} %
-          </small>
+          <div ng-repeat="sensor in sensors">
+            <strong>Node {{sensor.id}} </strong>
+            <small> {{sensor.hum}} %</small>
+          </div>
         </div>
         <div class="widget-footer">
           <small>Total Nodes</small>
