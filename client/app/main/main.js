@@ -39,7 +39,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
       borderWidth: 1,
       borderColor: '#eeeeee'
     },
-    colors: ["#5BA0D3"]
+    colors: ["#5BA0D3", "#efefef"]
   };
 
   //Interval -> 1sec
@@ -74,7 +74,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     }
     else { //The remote16 wasn't found
       datasets.push({ data: [xValue, yValue], yaxis: 1, label: sensor.remote16 });
-      $scope.options.colors.push("#eeeeee");
+      console.log("Add new: " + sensor.remote16);
     }
   };
 
