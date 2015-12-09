@@ -41,7 +41,7 @@ angular.module('dashboard', [
     $scope.averageTemp = averageTemp();
     $scope.averageHum = averageHum();
 
-    $scope.$broadcast('xbeeDisconnected', {id: message});
+    $rootScope.$broadcast('xbeeDisconnected', {id: message});
   });
 
   $socket.on('update', function(message) {
