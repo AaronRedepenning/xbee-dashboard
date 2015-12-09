@@ -42,7 +42,7 @@ angular.module('dashboard', [
     $scope.averageTemp = averageTemp();
     $scope.averageHum = averageHum();
 
-    xbeeDisconnected = message;
+    $scope.xbeeDisconnected = message;
   });
 
   $socket.on('update', function(message) {
