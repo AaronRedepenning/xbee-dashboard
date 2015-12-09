@@ -70,6 +70,7 @@ io.on('connection', function(socket){
 			xbeeAPI.on("frame_object", function(frame) {
 				//Recieved response from XBee, cancel disconnect timeout
 				if(xbee_set) {
+					console.log('Clearing Timeout for: ' + frame.remote16);
 					clearTimeout(XBeeTimeouts[frame.remote16]);
 				}
         //console.log(frame);
@@ -83,7 +84,7 @@ io.on('connection', function(socket){
         };
 				io.emit('update', data);
 				//Set a 5 second timeout to wait for next XBee response
-				XBeeTimeouts[data.remote16] = setTimeout(watchXbee(data.remote16), 10000);
+				XBeeTimeouts[frame.remote16] = setTimeout(watchXbee(frame.remote16), 10000);
 			});
 			xbee_set = true;
 		}
