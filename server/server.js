@@ -23,7 +23,7 @@ var C = xbee_api.constants,
 
 //A Javascript object used to keep track of last respones from XBee radios
 //If a radio doesn't respond after 5 seconds it will be disconnected
-var XBeeTimeouts;
+var XBeeTimeouts = {};
 
 // New XBee Object with API (Escaping) Mode
 xbeeAPI = new xbee_api.XBeeAPI({
