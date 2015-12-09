@@ -43,6 +43,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
   };
 
   $scope.$on('xbeeDisconnected', function(xbee) {
+    console.log('broadcast recieved: ' + xbee);
     removeFromDataset($scope.tempDatasets, xbee);
     removeFromDataset($scope.humDatasets, xbee);
   });
