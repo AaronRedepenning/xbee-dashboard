@@ -23,7 +23,7 @@ var C = xbee_api.constants,
 
 //A Javascript object used to keep track of last respones from XBee radios
 //If a radio doesn't respond after 5 seconds it will be disconnected
-var XBeeTimeouts = {};
+var XBeeTimeouts;
 
 // New XBee Object with API (Escaping) Mode
 xbeeAPI = new xbee_api.XBeeAPI({
@@ -84,8 +84,10 @@ io.on('connection', function(socket){
         };
 				io.emit('update', data);
 				//Set a 5 second timeout to wait for next XBee response
-				XBeeTimeouts[frame.remote16] = setTimeout(watchXbee(frame.remote16), 10000);
-				clearTimeout(XBeeTimeouts[frame.remote16]);
+				XBeeTimeouts = setTimeout(function() {
+					console.log('disconnect');
+				}, 10000);
+				clearTimeout(XBeeTimeouts);
 			});
 			xbee_set = true;
 		}
