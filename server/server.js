@@ -81,7 +81,7 @@ io.on('connection', function(socket){
         };
 				io.emit('update', data);
 				//Set a 5 second timeout to wait for next XBee response
-				setTimeout(watchXbee(data.remote16), 5000);
+				XBeeTimeouts[data.remote16] = setTimeout(watchXbee(data.remote16), 5000);
 			});
 			xbee_set = true;
 		}
