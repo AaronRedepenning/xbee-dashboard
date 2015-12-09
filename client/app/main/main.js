@@ -47,7 +47,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     removeFromDataset($scope.humDatasets, newValue);
   });
 
-  var removeFromDataset = function(dataset, xbeeId) {
+  var removeFromDataset = function(datasets, xbeeId) {
     //Search dataset for xbeeId
     var idx = -1;
     for (var i = 0; i < datasets.length; i++) {
