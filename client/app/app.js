@@ -16,13 +16,19 @@ angular.module('dashboard', [
   $routeProvider.otherwise({redirectTo: '/main'});
 }])
 
-.controller('GlobalCtrl', ['$scope', '$socket', function($scope, $socket) {
+.controller('GlobalCtrl', ['$scope', '$socket', '$timeout', function($scope, $socket, $timeout) {
   $scope.sensors = [];
   $scope.averageHum = 0;
   $scope.averageTemp = 0;
   $scope.isCollapsed = true;
 
+  //Each timeout will be tagged with the assosiated XBee's remote16
+  var timeouts = {};
+
   $socket.on('update', function(message) {
+    //End watch timout on XBee since we recieved a message from it
+    $timeout.cancel(timeouts[message.remote16]);
+
     //Find if sensor remote16 is already in the $scope.sensor
     var idx = -1;
     for (var i = 0; i < $scope.sensors.length; i++) {
@@ -45,7 +51,28 @@ angular.module('dashboard', [
     //Calculate average temperature and humidity
     $scope.averageTemp = averageTemp();
     $scope.averageHum = averageHum();
+
+    //Start disconnect timer, allow 5 for another message to be recieved,
+    //otherwise it will be disconnected
+    var timeouts[message.remote16] = $timeout(watchXBee(message.remote16) , 5000);
   });
+
+  var watchXBee = function(id) {
+    //Find the XBee by remote16 in sensor array
+    var idx = -1;
+    for (var i = 0; i < $scope.sensors.length; i++) {
+      if($scope.sensors[i].id == id) {
+        idx = i;
+        break;
+      }
+    }
+
+    if(idx != -1) {
+      //remote16 was found in the array
+      //Since there was an xbee timeout, remove the Xbee from array
+      $scope.sensors.splice(idx, 1);
+    }
+  };
 
   var averageTemp = function() {
     var avg = 0;
