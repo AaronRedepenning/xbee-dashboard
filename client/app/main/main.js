@@ -42,12 +42,6 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     colors: ["#5BA0D3", "#8DD9CA"]
   };
 
-  $scope.$watch('sensors.length', function(newValue, oldValue) {
-    if(newValue < oldValue) { //An XBee has been removed
-      console.log('An XBee has been removed');
-    }
-  });
-
   //Interval -> 1sec
   var intervalHandle = $interval(function() {
     xCount++;

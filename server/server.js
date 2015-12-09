@@ -21,6 +21,10 @@ var C = xbee_api.constants,
 		xbeeAPI,
 		serialport;
 
+//A Javascript object used to keep track of last respones from XBee radios
+//If a radio doesn't respond after 5 seconds it will be disconnected
+var XBeeTimeouts = {};
+
 // New XBee Object with API (Escaping) Mode
 xbeeAPI = new xbee_api.XBeeAPI({
 	api_mode: 2
@@ -64,7 +68,9 @@ io.on('connection', function(socket){
 	Set up event handler for recieveing xbee frames
 	if (xbee_set === false) {
 			xbeeAPI.on("frame_object", function(frame) {
-        console.log(frame);
+				//Recieved response from XBee, cancel disconnect timeout
+				clearTimeout(XBeeTimeouts[frame.remote16]);
+        //console.log(frame);
         var data = {
           type: frame.type,
           remote64: frame.remote64,
@@ -74,10 +80,16 @@ io.on('connection', function(socket){
           humidity: frame.data[1]
         };
 				io.emit('update', data);
+				//Set a 5 second timeout to wait for next XBee response
+				setTimeout(watchXbee(data.remote16), 5000);
 			});
 			xbee_set = true;
 		}
 });
+
+var watchXbee = function(id) {
+	console.log('XBee with remote16: ' + id + " has been disconnected");
+};
 
 // Start Server
 var server = http.listen(config.server.listenPort, function() {
