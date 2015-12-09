@@ -42,6 +42,27 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     colors: ["#5BA0D3", "#8DD9CA"]
   };
 
+  $scope.$watch('xbeeDisconnected', function(newValue, oldValue) {
+    removeFromDataset($scope.tempDatasets, newValue);
+    removeFromDataset($scope.humDatasets, newValue);
+  });
+
+  var removeFromDataset = function(dataset, xbeeId) {
+    //Search dataset for xbeeId
+    var idx = -1;
+    for (var i = 0; i < datasets.length; i++) {
+      if(datasets[i].label == xbeeId) {
+        idx = i;
+        break;
+      }
+    }
+    //Check if xbeeId was found
+    if(idx != -1) {
+      //Remove the dataset for this Xbee
+      datasets.splice(idx, 1);
+    }
+  };
+
   //Interval -> 1sec
   var intervalHandle = $interval(function() {
     xCount++;
@@ -57,7 +78,6 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     });
     //console.log($scope.tempDatasets);
   }, 1000);
-
 
   //Function
   var appendPlot = function(datasets, sensor, xValue, yValue) {
