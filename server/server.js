@@ -65,7 +65,7 @@ app.get('/nodes/:node.png', function (req, res) {
 
 //Socket.io emmitters
 io.on('connection', function(socket){
-	Set up event handler for recieveing xbee frames
+	//Set up event handler for recieveing xbee frames
 	if (xbee_set === false) {
 			xbeeAPI.on("frame_object", function(frame) {
 				//Recieved response from XBee, cancel disconnect timeout
