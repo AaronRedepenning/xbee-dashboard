@@ -21,7 +21,6 @@ angular.module('dashboard', [
   $scope.averageHum = 0;
   $scope.averageTemp = 0;
   $scope.isCollapsed = true;
-  $scope.xbeeDisconnected = '';
 
   $socket.on('disconnect', function(message) {
     //An XBee has been disconnected, message contains the XBees remote16
@@ -42,7 +41,7 @@ angular.module('dashboard', [
     $scope.averageTemp = averageTemp();
     $scope.averageHum = averageHum();
 
-    $scope.xbeeDisconnected = message;
+    $scope.$broadcast('xbeeDisconnected', message);
   });
 
   $socket.on('update', function(message) {
