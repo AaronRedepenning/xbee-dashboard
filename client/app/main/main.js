@@ -55,7 +55,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
       appendPlot($scope.tempDatasets, sensor, xCount, sensor.temp);
       appendPlot($scope.humDatasets, sensor, xCount, sensor.hum);
     });
-    console.log($scope.tempDatasets);
+    //console.log($scope.tempDatasets);
   }, 1000);
 
 
@@ -74,7 +74,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     }
     else { //The remote16 wasn't found
       datasets.push({ data: [xValue, yValue], yaxis: 1, label: sensor.id });
-      console.log("Add new: " + sensor.id);
+      //console.log("Add new: " + sensor.id);
     }
   };
 

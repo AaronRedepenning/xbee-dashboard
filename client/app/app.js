@@ -23,7 +23,23 @@ angular.module('dashboard', [
   $scope.isCollapsed = true;
 
   $socket.on('disconnect', function(message) {
+    //An XBee has been disconnected, message contains the XBees remote16
     console.log('XBee ' + message + " has been disconnected");
+
+    //Find the XBee that needs to be removed
+    var idx = -1;
+    for (var i = 0; i < $scope.sensors.length; i++) {
+      if($scope.sensors[i].id == message) {
+        idx = i;
+        break;
+      }
+    }
+    //Remove the object from array
+    $scope.sensors.splice(idx, 1);
+
+    //Calculate average temperature and humidity
+    $scope.averageTemp = averageTemp();
+    $scope.averageHum = averageHum();
   });
 
   $socket.on('update', function(message) {
