@@ -42,10 +42,10 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
     colors: ["#5BA0D3", "#8DD9CA"]
   };
 
-  $scope.$on('xbeeDisconnected', function(xbee) {
-    console.log('broadcast recieved: ' + xbee);
-    removeFromDataset($scope.tempDatasets, xbee.id);
-    removeFromDataset($scope.humDatasets, xbee.id);
+  $scope.$on('xbeeDisconnected', function(e, args) {
+    console.log('Broadcast from ' + e.name + ' event, for XBee with remote16 = ' + args.id);
+    removeFromDataset($scope.tempDatasets, args.id);
+    removeFromDataset($scope.humDatasets, args.id);
   });
 
   var removeFromDataset = function(datasets, xbeeId) {

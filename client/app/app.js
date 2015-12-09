@@ -16,7 +16,7 @@ angular.module('dashboard', [
   $routeProvider.otherwise({redirectTo: '/main'});
 }])
 
-.controller('GlobalCtrl', ['$scope', '$socket', '$rootScope', function($scope, $socket, $rootScope) {
+.controller('GlobalCtrl', ['$scope', '$socket', function($scope, $socket) {
   $scope.sensors = [];
   $scope.averageHum = 0;
   $scope.averageTemp = 0;
@@ -41,7 +41,7 @@ angular.module('dashboard', [
     $scope.averageTemp = averageTemp();
     $scope.averageHum = averageHum();
 
-    $rootScope.$broadcast('xbeeDisconnected', {id: message});
+    $scope.$broadcast('xbeeDisconnected', {id: message});
   });
 
   $socket.on('update', function(message) {
@@ -58,10 +58,11 @@ angular.module('dashboard', [
       //This remote16 was found. Update the temp and hum values for it.
       $scope.sensors[idx].temp = message.temperature;
       $scope.sensors[idx].hum = message.humidity;
+      $scope.sensors[idx].raw = message;
     }
     else {
       //This remote16 wasn't found. New node so add it to array.
-      $scope.sensors.push({id:message.remote16, temp: message.temperature, hum: message.humidity});
+      $scope.sensors.push({id:message.remote16, temp: message.temperature, hum: message.humidity, raw: message});
     }
 
     //Calculate average temperature and humidity
