@@ -16,7 +16,7 @@ angular.module('dashboard', [
   $routeProvider.otherwise({redirectTo: '/main'});
 }])
 
-.controller('GlobalCtrl', ['$scope', '$socket', function($scope, $socket) {
+.controller('GlobalCtrl', ['$scope', '$socket', '$rootScope', function($scope, $socket, $rootScope) {
   $scope.sensors = [];
   $scope.averageHum = 0;
   $scope.averageTemp = 0;
