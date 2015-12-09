@@ -22,6 +22,10 @@ angular.module('dashboard', [
   $scope.averageTemp = 0;
   $scope.isCollapsed = true;
 
+  $socket.on('disconnect', function(message) {
+    console.log('XBee ' + message + " has been disconnected");
+  });
+
   $socket.on('update', function(message) {
     //Find if sensor remote16 is already in the $scope.sensor
     var idx = -1;

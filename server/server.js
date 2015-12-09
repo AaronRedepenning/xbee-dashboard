@@ -85,6 +85,7 @@ io.on('connection', function(socket){
 				//Set a 5 second timeout to wait for next XBee response
 				XBeeTimeouts[frame.remote16] = setTimeout(function() {
 					console.log('Disconnected: ' + frame.remote16);
+					io.emit('disconnect', frame.remote16);
 				}, 10000);
 			});
 			xbee_set = true;
