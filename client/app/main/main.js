@@ -39,7 +39,7 @@ angular.module('dashboard.main', ['ngRoute', 'angular-flot', 'ngSocket'])
       borderWidth: 1,
       borderColor: '#eeeeee'
     },
-    colors: ["#5BA0D3", "#8DD9CA"]
+    colors: ["#5BA0D3", "#FF0033"]
   };
 
   $scope.$on('xbeeDisconnected', function(e, args) {
