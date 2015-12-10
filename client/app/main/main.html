@@ -95,10 +95,10 @@
     </div>
     <!--/Humidity Guage-->
 
-    <div class="col-md-4">
-      <div class="widget" ng-repeat="sensor in sensors">
+    <div class="col-md-4" ng-repeat="sensor in sensors">
+      <div class="widget">
         <div class="widget-header">
-          <h5>Raw Data</h5>
+          <h5>Raw Data - Node {{sensor.raw.remote16}}</h5>
         </div>
         <div class="widget-body">
           {
