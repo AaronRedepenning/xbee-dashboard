@@ -95,21 +95,23 @@
     </div>
     <!--/Humidity Guage-->
 
-
-    <div class="widget" ng-repeat="sensor in sensors">
-      <div class="widget-header">
-        <h5>Raw Data</h5>
-      </div>
-      <div class="widget-body">
-        {
-          type: {{sensor.raw.type}},
-          remote64: {{sensor.raw.remote64}},
-          remote16: {{sensor.raw.remote16}},
-          receiveOptions: {{sensor.raw.receiveOptions}},
-          temperature: {{sensor.raw.temperature}},
-          humidity: {{sensor.raw.humidity}}
-        }
+    <div class="col-md-4">
+      <div class="widget" ng-repeat="sensor in sensors">
+        <div class="widget-header">
+          <h5>Raw Data</h5>
+        </div>
+        <div class="widget-body">
+          {
+            type: {{sensor.raw.type}},
+            remote64: {{sensor.raw.remote64}},
+            remote16: {{sensor.raw.remote16}},
+            receiveOptions: {{sensor.raw.receiveOptions}},
+            temperature: {{sensor.raw.temperature}},
+            humidity: {{sensor.raw.humidity}}
+          }
+        </div>
       </div>
     </div>
+
   </div>
 </div>
